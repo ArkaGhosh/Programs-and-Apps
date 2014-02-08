@@ -285,3 +285,81 @@ class PE10
     }
 }
 
+
+
+import java.lang.Math;
+class PE12
+{
+    public static int num_div(long n)
+    {
+        long num=n;
+        int count=0;
+        for(long i=1;i<=Math.sqrt(num);i++)
+        {
+            if(num%i==0)
+            {
+                count++;
+            }
+        }
+        if((Math.pow(Math.sqrt(num),2))==(num^2))
+        {
+            return count*2-1;
+        }
+        else
+        {
+            return count*2;
+        }
+    }
+    public static void main (String args[])
+    {
+        long num=0;
+        for(long i=1;;i++)
+        {
+            num+=i;
+            if(PE12.num_div(num)>500)
+            {
+                System.out.println(num);
+                break;
+            }
+        }
+    }
+}
+
+
+class PE14
+{
+    public static long length(long n)
+    {
+        long num=n;
+        long count=0;
+        while(num!=1)
+        {
+            if(num%2==0)
+            {
+                num/=2;
+            }
+            else
+            {
+                num=3*num+1;
+            }
+            count++;
+        }
+        return count;
+    }
+    public static void main(String args[])
+    {
+        long max=0,l,num=0;
+        for(long i=1;i<1000000;i++)
+        {
+            l=PE14.length(i);
+            if(l>max)
+            {
+                max=l;
+                num=i;
+            }
+        }
+        System.out.println("Length :"+max+" Number :"+num);
+    }
+}
+
+
